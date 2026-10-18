@@ -344,6 +344,12 @@
             object-fit: contain;
             cursor: zoom-in;
         }
+        #m .project-gallery.logo-gallery .project-presentation {
+            min-height: 0;
+            height: 100%;
+            width: 100%;
+            background: transparent;
+        }
         #m .image-lightbox {
             position: fixed;
             inset: 0;
@@ -435,6 +441,46 @@
             align-items: center;
             justify-content: center;
         }
+        #m .row .img.inpost-preview {
+            background: #ece8de url("inpost/ipad-pro-mockup.png") center / cover no-repeat;
+        }
+        #m .logo-projects-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 8px;
+            width: 100%;
+            height: 100%;
+            padding: 8px;
+            background: #f7f7f4;
+        }
+        #m .logo-projects-preview img {
+            width: 100%;
+            height: 100%;
+            min-width: 0;
+            min-height: 0;
+            display: block;
+            object-fit: cover;
+        }
+        #m .project-gallery.logo-gallery {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+        #m .project-gallery.logo-gallery figure,
+        #m .project-gallery.logo-gallery figure:first-child {
+            grid-column: auto;
+            min-height: 0;
+            aspect-ratio: 1 / 1;
+            padding: 28px;
+            background: #f7f7f4;
+            border: 1px solid #e5e5df;
+            color: #000;
+        }
+        #m .project-gallery.logo-gallery .project-image,
+        #m .project-gallery.logo-gallery .project-presentation-image {
+            object-fit: contain;
+            background: transparent;
+        }
         #m .row svg {
             width: 46%;
             height: auto;
@@ -492,6 +538,9 @@
         }
         @media (max-width:700px) {
             #m .db li {
+                grid-template-columns: 1fr;
+            }
+            #m .project-gallery.logo-gallery {
                 grid-template-columns: 1fr;
             }
         }
@@ -612,6 +661,106 @@
             color: #000;
             transform: translateZ(calc(var(--z)*2.2));
         }
+        #m .app-screen {
+            border: 1px solid rgba(255,255,255,.45);
+            background:
+                linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px),
+                #080808;
+            background-size: 24px 24px;
+            color: #fff;
+            padding: 18px;
+            position: relative;
+            overflow: hidden;
+        }
+        #m .app-screen::after {
+            content: "";
+            position: absolute;
+            top: -42px;
+            right: -32px;
+            width: 120px;
+            height: 120px;
+            border: 1px solid #ffca05;
+            border-radius: 50%;
+            box-shadow: 0 0 0 14px rgba(255,202,5,.12), 0 0 0 28px rgba(255,202,5,.06);
+            pointer-events: none;
+        }
+        #m .app-screen small {
+            display: block;
+            color: rgba(255,255,255,.6);
+            font-size: 9px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+        #m .app-screen strong {
+            display: block;
+            margin-top: 8px;
+            font-size: 22px;
+            font-weight: 300;
+        }
+        #m .app-card {
+            margin-top: 18px;
+            padding: 12px;
+            border: 1px solid #4fd1c5;
+            background: rgba(79,209,197,.08);
+            position: relative;
+            z-index: 1;
+        }
+        #m .app-card span {
+            display: block;
+            width: 72%;
+            height: 5px;
+            margin-top: 8px;
+            background: #fff;
+        }
+        #m .app-card span:last-child {
+            width: 46%;
+            opacity: .45;
+        }
+        #m .app-wireframe {
+            display: flex;
+            gap: 5px;
+            margin-top: 14px;
+            height: 28px;
+            align-items: flex-end;
+        }
+        #m .app-wireframe i {
+            display: block;
+            flex: 1;
+            min-width: 0;
+            border: 1px solid #ff6b6b;
+            background: rgba(255,107,107,.25);
+        }
+        #m .app-wireframe i:nth-child(1) {
+            height: 40%;
+        }
+        #m .app-wireframe i:nth-child(2) {
+            height: 72%;
+        }
+        #m .app-wireframe i:nth-child(3) {
+            height: 54%;
+        }
+        #m .app-wireframe i:nth-child(4) {
+            height: 92%;
+        }
+        #m .app-action {
+            display: inline-block;
+            border: 1px solid #ffca05;
+            border-radius: 999px;
+            padding: 8px 16px;
+            background: #ffca05;
+            color: #000;
+            font-size: 10px;
+        }
+        #m .app-cursor {
+            display: grid;
+            place-items: center;
+            border: 1px solid #000;
+            border-radius: 50%;
+            background: #fff;
+            color: #000;
+            font-size: 16px;
+        }
         @media (max-width:800px) {
             #m .lab .wrap {
                 grid-template-columns: 1fr;
@@ -634,6 +783,12 @@
             display: grid;
             grid-template-columns: repeat(3,1fr);
             gap: 28px;
+        }
+        #m footer .city-time {
+            display: block;
+            margin-top: 6px;
+            color: #000;
+            font-variant-numeric: tabular-nums;
         }
         #m-cw #m-ck {
             position: fixed;
@@ -756,6 +911,7 @@
                         <button class="tag on" data-f="all" data-i18n="all">Wszystko</button>
                         <button class="tag" data-f="3d">3D</button>
                         <button class="tag" data-f="ui">UI/UX</button>
+                        <button class="tag" data-f="branding">Branding</button>
                     </div>
                     <a class="row rv" data-cat="ui" data-project="watches" href="#projekt/watches">
                         <div class="img">
@@ -767,9 +923,7 @@
                         </div>
                     </a>
                     <a class="row rv" data-cat="ui" data-project="inpost" href="#projekt/inpost">
-                        <div class="img">
-                            <img class="project-image" src="inpost/primary-logo.png" alt="InPost — logo główne" loading="lazy">
-                        </div>
+                        <div class="img inpost-preview" aria-label="InPost — mockup strony na iPadzie"></div>
                         <div class="t">
                             <span data-i18n="workInpost">InPost identyfikacja wizualna</span>
                             <em>Branding · UX/UI · 2026</em>
@@ -784,37 +938,18 @@
                             <em>3D · 2026</em>
                         </div>
                     </a>
-                    <a class="row rv" data-cat="3d" data-project="cosmetics" href="#projekt/cosmetics">
+                    <a class="row rv" data-cat="branding" data-project="cosmetics" href="#projekt/cosmetics">
                         <div class="img">
-                            <svg viewBox="0 0 200 200">
-                                <g class="s"><ellipse cx="100" cy="100" rx="80" ry="30"/><ellipse cx="100" cy="100" rx="80" ry="30" transform="rotate(60 100 100)"/><ellipse cx="100" cy="100" rx="80" ry="30" transform="rotate(120 100 100)"/></g>
-                            </svg>
+                            <div class="logo-projects-preview" aria-label="Wybrane projekty logotypów">
+                                <img src="inpost/cfe-logo-black.png" alt="CFE — projekt logotypu" loading="lazy">
+                                <img src="inpost/post-logo.png" alt="Post — projekt logotypu" loading="lazy">
+                                <img src="inpost/level43-logo.png" alt="Level 43 — projekt logotypu" loading="lazy">
+                                <img src="inpost/tauron-logo.png" alt="Tauron — projekt logotypu" loading="lazy">
+                            </div>
                         </div>
                         <div class="t">
-                            <span data-i18n="workCosmetics">Motion identity dla marki kosmetycznej</span>
-                            <em>3D · 2025</em>
-                        </div>
-                    </a>
-                    <a class="row rv" data-cat="ui" data-project="studios" href="#projekt/studios">
-                        <div class="img">
-                            <svg viewBox="0 0 200 200">
-                                <g class="s"><rect x="62" y="16" width="76" height="168"/><path d="M62 40H138M72 60H128M72 76H112M72 100H128V132H72Z"/><rect x="76" y="150" width="48" height="18" rx="9"/></g>
-                            </svg>
-                        </div>
-                        <div class="t">
-                            <span data-i18n="workStudios">Aplikacja do rezerwacji studiów</span>
-                            <em>UI/UX · 2026</em>
-                        </div>
-                    </a>
-                    <a class="row rv" data-cat="ui" data-project="dashboard" href="#projekt/dashboard">
-                        <div class="img">
-                            <svg viewBox="0 0 200 200">
-                                <g class="s"><rect x="14" y="30" width="172" height="140"/><path d="M14 52H186M56 52V170"/><circle cx="122" cy="110" r="32"/><path d="M122 110V78M122 110L148 124M70 70H44M70 90H44M70 110H44"/></g>
-                            </svg>
-                        </div>
-                        <div class="t">
-                            <span data-i18n="workDashboard">Dashboard analityczny i system designu</span>
-                            <em>UI/UX · 2025</em>
+                            <span data-i18n="workCosmetics">Projekty logotypów</span>
+                            <em>Branding · 2026</em>
                         </div>
                     </a>
                 </div>
@@ -839,22 +974,28 @@
             <section class="lab" id="m-lab">
                 <div class="wrap">
                     <div>
-                        <h2 class="rv" data-i18n="labTitle">Interfejs jako przestrzeń</h2>
-                        <p class="rv" data-i18n="labText">Eksperyment z warstwami interfejsu w osi Z. Użyj suwaka i zobacz, jak zmienia się relacja między treścią, akcją i kontekstem.</p>
+                        <h2 class="rv" data-i18n="labTitle">Aplikacja w kilku warstwach</h2>
+                        <p class="rv" data-i18n="labText">Prosty koncept aplikacji do planowania dnia. Interfejs opiera się na spokojnej typografii, czytelnych kartach i jednej głównej akcji.</p>
                         <div class="ctl rv">
-                            <label for="m-z" data-i18n="layers">Odległość między warstwami</label>
+                            <label for="m-z" data-i18n="layers">Głębia interfejsu</label>
                             <input id="m-z" type="range" min="0" max="120" value="50"></div>
                         </div>
                         <div class="stage rv" id="m-stage">
                             <div class="scene" id="m-scene">
-                                <div class="ly l1" data-i18n="sceneBackground">tło</div>
-                                <div class="ly l2" data-i18n="sceneContent">treść<i></i>
-                                    <i></i>
+                                <div class="ly l1" data-i18n="sceneBackground">Dzisiaj</div>
+                                <div class="ly l2 app-screen">
+                                    <small data-i18n="sceneContent">Twój plan</small>
+                                    <strong>09:41</strong>
+                                    <div class="app-card">
+                                        <span></span>
+                                        <span></span>
+                                        <div class="app-wireframe" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                                    </div>
                                 </div>
                                 <div class="ly l3">
-                                    <b data-i18n="sceneAction">Rezerwuj</b>
+                                    <b class="app-action" data-i18n="sceneAction">Dodaj zadanie</b>
                                 </div>
-                                <div class="ly l4" data-i18n="sceneCursor">kursor</div>
+                                <div class="ly l4 app-cursor" data-i18n="sceneCursor">+</div>
                             </div>
                         </div>
                     </div>
@@ -890,9 +1031,9 @@
                     </section>
                     <footer>
                         <div class="wrap">
-                            <p>Warszawa</p>
-                            <p>Berlin</p>
-                            <p>Londyn</p>
+                            <p>Warszawa<span class="city-time" data-timezone="Europe/Warsaw">--:--:--</span></p>
+                            <p>Berlin<span class="city-time" data-timezone="Europe/Berlin">--:--:--</span></p>
+                            <p>Londyn<span class="city-time" data-timezone="Europe/London">--:--:--</span></p>
                         </div>
                     </footer>
                 </div>
@@ -1048,11 +1189,11 @@
                                         profileAlt: "Dawid Światłoch przy pracy nad samochodem", aboutShortTitle: "Dawid Światłoch",
                                         aboutShortText: "Nazywam się Dawid Światłoch. Zajmuję się projektowaniem graficznym, grafiką 3D i UX/UI.<br><br>Lubię eksperymentować z formą, kolorami i kompozycją, szukając własnego sposobu na przedstawianie pomysłów. To portfolio zbiera moje prace, eksperymenty i projekty, w których rozwijam swoje umiejętności oraz styl.",
                                         selectedWork: "Wybrane projekty", all: "Wszystkie",
-                                        workWatches: "Kampania CGI dla kolekcji zegarków", workCosmetics: "Motion identity dla marki kosmetycznej",
+                                        workWatches: "Kampania CGI dla kolekcji zegarków", workCosmetics: "Projekty logotypów",
                                         workInpost: "InPost identyfikacja wizualna", workStudios: "Aplikacja do rezerwacji studiów", workDashboard: "Dashboard analityczny i system designu",
                                         allWork: "← Wszystkie realizacje", aboutProject: "O projekcie", backToWork: "← Wróć do realizacji",
-                                        labTitle: "Interfejs jako przestrzeń", labText: "Eksperyment z warstwami interfejsu w osi Z. Użyj suwaka i zobacz, jak zmienia się relacja między treścią, akcją i kontekstem.",
-                                        layers: "Odległość między warstwami", sceneBackground: "tło", sceneContent: "treść", sceneAction: "Rezerwuj", sceneCursor: "kursor",
+                                        labTitle: "Aplikacja w kilku warstwach", labText: "Prosty koncept aplikacji do planowania dnia. Interfejs opiera się na spokojnej typografii, czytelnych kartach i jednej głównej akcji.",
+                                        layers: "Głębia interfejsu", sceneBackground: "Dzisiaj", sceneContent: "Twój plan", sceneAction: "Dodaj zadanie", sceneCursor: "+",
                                         processTitle: "Obszary<br>praktyki", process3d: "3D, CGI i rendering",
                                         process3dText: "Modelowanie, materiały, oświetlenie i budowanie obrazu 3D.",
                                         processUi: "UX / UI i design systemy",
@@ -1069,11 +1210,11 @@
                                         profileAlt: "Dawid Światłoch working on a car", aboutShortTitle: "Dawid Światłoch",
                                         aboutShortText: "My name is Dawid Światłoch. I am a designer working across UX/UI, 3D and art direction. This portfolio brings together my projects, experiments and ways of thinking about image, form and user experience.",
                                         selectedWork: "Selected projects", all: "All",
-                                        workWatches: "Tauron identity and website", workCosmetics: "Motion identity for a cosmetics brand",
+                                        workWatches: "Tauron identity and website", workCosmetics: "Logo projects",
                                         workInpost: "InPost visual identity", workStudios: "Studio booking application", workDashboard: "Analytics dashboard and design system",
                                         allWork: "← All work", aboutProject: "About the project", backToWork: "← Back to work",
-                                        labTitle: "Interface as a space", labText: "An experiment in interface layers along the Z axis. Use the slider to explore the relationship between content, action and context.",
-                                        layers: "Layer depth", sceneBackground: "background", sceneContent: "content", sceneAction: "Book now", sceneCursor: "cursor",
+                                        labTitle: "An app in several layers", labText: "A simple concept for planning the day. The interface uses calm typography, clear cards and one primary action.",
+                                        layers: "Interface depth", sceneBackground: "Today", sceneContent: "Your plan", sceneAction: "Add task", sceneCursor: "+",
                                         processTitle: "Areas of<br>practice", process3d: "3D, CGI and rendering",
                                         process3dText: "Modeling, materials, lighting and building a 3D image.",
                                         processUi: "UX/UI and design systems",
@@ -1156,13 +1297,14 @@
                                                     ]
                                                 },
                                                 cosmetics: {
-                                                    title: "Animowana identyfikacja marki kosmetycznej",
-                                                    meta: "3D · 2025",
-                                                    description: "Identyfikacja ruchowa dla marki kosmetycznej oparta na miękkich formach, płynnych przejściach i kontrastowym świetle. System został przygotowany tak, aby działał w filmie, social mediach i na stronie produktu.",
+                                                    title: "Projekty logotypów",
+                                                    meta: "Branding · 2026",
+                                                    description: "Zbiór autorskich projektów logotypów obejmujący różne kierunki, branże i języki wizualne.",
                                                     gallery: [
-                                                        '<svg viewBox="0 0 400 260"><ellipse cx="200" cy="130" rx="120" ry="46" fill="none" stroke="white" stroke-width="2"/><ellipse cx="200" cy="130" rx="120" ry="46" transform="rotate(60 200 130)" fill="none" stroke="white"/><ellipse cx="200" cy="130" rx="120" ry="46" transform="rotate(120 200 130)" fill="none" stroke="white"/></svg>',
-                                                        '<svg viewBox="0 0 300 220"><circle cx="150" cy="110" r="68" fill="none" stroke="white"/><path d="M82 110h136M150 42v136" stroke="white" opacity=".6"/></svg>',
-                                                        '<svg viewBox="0 0 300 220"><path d="M70 160c42-100 118-100 160 0M95 100c35 35 75 35 110 0" fill="none" stroke="white" stroke-width="2"/></svg>'
+                                                        '<img class="project-image project-presentation-image" src="inpost/cfe-logo-black.png" alt="CFE — projekt logotypu" loading="lazy">',
+                                                        '<img class="project-image" src="inpost/post-logo.png" alt="Post — projekt logotypu" loading="lazy">',
+                                                        '<img class="project-image" src="inpost/level43-logo.png" alt="Level 43 — projekt logotypu" loading="lazy">',
+                                                        '<img class="project-image" src="inpost/tauron-logo.png" alt="Tauron — projekt logotypu" loading="lazy">'
                                                     ]
                                                 },
                                                 studios: {
@@ -1200,7 +1342,7 @@
                                                 watches: ["Tauron identyfikacja i strona internetowa", "Koncepcja identyfikacji wizualnej i strony internetowej dla firmy TAURON, związana z energią odnawialną i świadomym korzystaniem z zasobów. Projekt łączy wyrazisty język marki, czytelną komunikację oraz nowoczesny interfejs, który przybliża użytkownikom temat ekologicznej energii i codziennych sposobów na bardziej zrównoważone życie."],
                                                         inpost: ["InPost identyfikacja wizualna", "Projekt systemu identyfikacji wizualnej InPost obejmujący logo, typografię, hierarchię informacji i paletę kolorów."],
                                                         helmet: ["Kask wyścigowy projekt 3D", "Projekt modelu 3D kasku wyścigowego wykonany w Blenderze. Praca obejmowała budowę formy, modelowanie detali, przygotowanie wizjera i elementów mocujących, a także opracowanie materiałów, kolorystyki i oświetlenia do finalnych renderów."],
-                                                        cosmetics: ["Motion identity dla marki kosmetycznej", "System ruchu dla marki kosmetycznej oparty na organicznych formach, płynnych przejściach i kontrastowym świetle. Identyfikacja została przygotowana z myślą o filmie, social mediach i doświadczeniu produktu online."],
+                                                        cosmetics: ["Projekty logotypów", "Zbiór autorskich projektów logotypów obejmujący różne kierunki, branże i języki wizualne."],
                                                 studios: ["Aplikacja do rezerwacji studiów", "Koncepcja i projekt UX/UI aplikacji do rezerwowania przestrzeni kreatywnych. Uporządkowałem proces od wyszukania studia i wyboru terminu po płatność, a następnie przełożyłem go na spójny prototyp i bibliotekę komponentów."],
                                                 dashboard: ["Dashboard analityczny i system designu", "Dashboard dla zespołu potrzebującego szybkiego i czytelnego obrazu danych. Zaprojektowałem hierarchię informacji, moduły analityczne oraz skalowalny system designu, który porządkuje dalszy rozwój produktu."]
                                             },
@@ -1208,7 +1350,7 @@
                                                 watches: ["Tauron identity and website", "A visual identity and website concept for TAURON, focused on renewable energy and more conscious use of resources. The project combines a distinctive brand language, clear communication and a contemporary interface that introduces users to clean energy and more sustainable everyday choices."],
                                                 inpost: ["InPost visual identity", "An InPost visual identity system covering the logo, typography, information hierarchy and colour palette."],
                                                 helmet: ["Racing helmet 3D project", "A 3D racing helmet project created in Blender. The work covered form development, detail modeling, visor and fastening elements, as well as the materials, colour treatment and lighting for the final renders."],
-                                                cosmetics: ["Motion identity for a cosmetics brand", "A motion system for a cosmetics brand built around organic forms, fluid transitions and contrasting light. The identity was designed for film, social media and the online product experience."],
+                                                cosmetics: ["Logo projects", "A collection of original logo projects across different directions, industries and visual languages."],
                                                 studios: ["Studio booking application", "UX/UI concept and design for a creative-space booking application. I streamlined the journey from finding a studio and selecting a time slot to payment, then translated it into a clear prototype and component library."],
                                                 dashboard: ["Analytics dashboard and design system", "A dashboard for a team that needed a fast, clear view of its data. I designed the information hierarchy, analytical modules and a scalable design system to support the product’s continued growth."]
                                             }
@@ -1252,6 +1394,7 @@
                                         o.textContent = d[i][0],
                                         n.textContent = f.meta,
                                         r.textContent = d[i][1],
+                                        c.classList.toggle("logo-gallery", i === "cosmetics"),
                                         c.innerHTML = f.gallery.map(function (e, t) {
                                                 return "<figure aria-label=\"" + (a === "en" ? "Preview " : "Podgląd ") + (t + 1) + "\">" + e + "</figure>"
                                         }).join(""),
@@ -1349,10 +1492,23 @@
                                     });
                                 var c = document.getElementById("m-mail");
                                 if (c) {
-                                    var mailAddress = ["hello", "dejww.studio"].join("@");
+                                    var mailAddress = "dawidswiatloch1@gmail.com";
                                     c.href = "mailto:" + mailAddress,
                                     c.textContent = mailAddress
                                 }
+                                function updateCityTimes() {
+                                    document.querySelectorAll("#m .city-time").forEach(function (e) {
+                                        e.textContent = new Intl.DateTimeFormat("pl-PL", {
+                                            timeZone: e.dataset.timezone,
+                                            hour: "2-digit",
+                                            minute: "2-digit",
+                                            second: "2-digit",
+                                            hour12: false
+                                        }).format(new Date());
+                                    });
+                                }
+                                updateCityTimes();
+                                setInterval(updateCityTimes, 1000);
                             } else 
                                 e++ < 80 && setTimeout(t, 100);
                             function a() {
