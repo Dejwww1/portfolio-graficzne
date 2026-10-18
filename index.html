@@ -442,7 +442,14 @@
             justify-content: center;
         }
         #m .row .img.inpost-preview {
-            background: #ece8de url("inpost/ipad-pro-mockup.png") center / cover no-repeat;
+            background: #fff url("inpost/inpost-brand-guidelines.png") center top / cover no-repeat;
+        }
+        #m .row .img.tauron-preview {
+            background: #fff;
+        }
+        #m .row .img.tauron-preview .project-image {
+            object-fit: cover;
+            object-position: center top;
         }
         #m .logo-projects-preview {
             display: grid;
@@ -461,6 +468,163 @@
             min-height: 0;
             display: block;
             object-fit: cover;
+        }
+        #m .social-preview {
+            background: #000;
+            color: #fff;
+            font-size: clamp(32px, 6vw, 72px);
+            font-weight: 300;
+            letter-spacing: -.04em;
+            text-transform: lowercase;
+        }
+        #m .social-project-detail {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            position: relative;
+            padding: 52px 28px 28px;
+            background: #000;
+            color: #fff;
+        }
+        #m .project-gallery.social-gallery {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+        #m .project-gallery.social-gallery figure {
+            min-height: 0;
+            padding: 18px;
+            background: #000;
+            color: #fff;
+        }
+        #m .project-gallery.social-gallery figure:first-child,
+        #m .project-gallery.social-gallery figure:nth-child(2) {
+            grid-column: auto;
+        }
+        #m .project-gallery.social-gallery figure:nth-child(n+3) {
+            padding: 0;
+        }
+        #m .social-image-card {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        #m .social-image-card small {
+            font-size: 14px;
+            letter-spacing: .14em;
+            font-weight: 400;
+        }
+        #m .social-image-card img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            display: block;
+            object-fit: cover;
+            object-position: top center;
+        }
+        #m .ig-frame {
+            aspect-ratio: 1 / 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            background: #fff;
+            color: #000;
+            position: relative;
+            border: 1px solid #fff;
+        }
+        #m .ig-frame small {
+            font-size: 9px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+        #m .ig-frame strong {
+            font-size: clamp(34px, 6vw, 78px);
+            font-weight: 300;
+            line-height: .88;
+        }
+        #m .ig-frame p {
+            display: block;
+            max-width: 180px;
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.35;
+        }
+        #m .ig-before {
+            background: #d9d9d9;
+            color: #777;
+            filter: grayscale(1);
+        }
+        #m .ig-before strong {
+            text-decoration: line-through;
+            text-decoration-thickness: 1px;
+        }
+        #m .ig-after {
+            background: #fff;
+            color: #000;
+        }
+        #m .ig-after strong {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 8px;
+        }
+        #m .ig-arrow {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            display: grid;
+            place-items: center;
+            width: 54px;
+            height: 54px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            background: #fff;
+            color: #000;
+            transform: translate(-50%, -50%);
+            font-size: 22px;
+        }
+        #m .ig-transform::before {
+            content: "SOCIAL MEDIA / TRANSFORMATION";
+            position: absolute;
+            top: 18px;
+            left: 28px;
+            color: #fff;
+            font-size: 9px;
+            letter-spacing: .14em;
+        }
+        #m .ig-transform::after {
+            content: "01 / 05";
+            position: absolute;
+            top: 18px;
+            right: 28px;
+            color: #777;
+            font-size: 9px;
+            letter-spacing: .14em;
+        }
+        #m .ig-caption {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 14px;
+            color: var(--felt);
+            font-size: 12px;
+        }
+        #m .ig-caption strong {
+            color: #000;
+            font-weight: 400;
+        }
+        @media (max-width:600px) {
+            #m .project-gallery.social-gallery {
+                grid-template-columns: 1fr;
+            }
+            #m .social-project-detail {
+                grid-template-columns: 1fr;
+                padding: 52px 18px 18px;
+            }
+            #m .ig-arrow {
+                top: 50%;
+                transform: translate(-50%, -50%) rotate(90deg);
+            }
         }
         #m .project-gallery.logo-gallery {
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -914,16 +1078,16 @@
                         <button class="tag" data-f="branding">Branding</button>
                     </div>
                     <a class="row rv" data-cat="ui" data-project="watches" href="#projekt/watches">
-                        <div class="img">
-                            <span class="tauron-home-preview" aria-hidden="true"></span>
+                        <div class="img tauron-preview">
+                            <img class="project-image" src="tauron/tauron-presentation.png" alt="Tauron — prezentacja projektu" loading="lazy">
                         </div>
                         <div class="t">
-                            <span data-i18n="workWatches">Tauron identyfikacja i strona internetowa</span>
+                            <span data-i18n="workWatches">Testowy branding dla Taurona</span>
                             <em>Branding · UX/UI · 2026</em>
                         </div>
                     </a>
                     <a class="row rv" data-cat="ui" data-project="inpost" href="#projekt/inpost">
-                        <div class="img inpost-preview" aria-label="InPost — mockup strony na iPadzie"></div>
+                        <div class="img inpost-preview" aria-label="InPost — prezentacja identyfikacji wizualnej"></div>
                         <div class="t">
                             <span data-i18n="workInpost">InPost identyfikacja wizualna</span>
                             <em>Branding · UX/UI · 2026</em>
@@ -936,6 +1100,13 @@
                         <div class="t">
                             <span data-i18n="workHelmet">Kask wyścigowy projekt 3D</span>
                             <em>3D · 2026</em>
+                        </div>
+                    </a>
+                    <a class="row rv" data-cat="ui" data-project="social" href="#projekt/social">
+                        <div class="img social-preview">social media</div>
+                        <div class="t">
+                            <span data-i18n="workSocial">Social media</span>
+                            <em>Content · 2026</em>
                         </div>
                     </a>
                     <a class="row rv" data-cat="branding" data-project="cosmetics" href="#projekt/cosmetics">
@@ -1189,8 +1360,10 @@
                                         profileAlt: "Dawid Światłoch przy pracy nad samochodem", aboutShortTitle: "Dawid Światłoch",
                                         aboutShortText: "Nazywam się Dawid Światłoch. Zajmuję się projektowaniem graficznym, grafiką 3D i UX/UI.<br><br>Lubię eksperymentować z formą, kolorami i kompozycją, szukając własnego sposobu na przedstawianie pomysłów. To portfolio zbiera moje prace, eksperymenty i projekty, w których rozwijam swoje umiejętności oraz styl.",
                                         selectedWork: "Wybrane projekty", all: "Wszystkie",
-                                        workWatches: "Kampania CGI dla kolekcji zegarków", workCosmetics: "Projekty logotypów",
+                                        workWatches: "Testowy branding dla Taurona", workCosmetics: "Projekty logotypów", workSocial: "Social media",
                                         workInpost: "InPost identyfikacja wizualna", workStudios: "Aplikacja do rezerwacji studiów", workDashboard: "Dashboard analityczny i system designu",
+                                        socialTitle: "Social media", socialLabel: "Post 01", socialOne: "Ruch<br>i forma", socialLabelTwo: "Post 02", socialTwo: "Mniej<br>znaczy więcej", socialLabelThree: "Post 03", socialThree: "Nowy<br>kierunek", socialLabelFour: "Post 04", socialFour: "Kolor<br>marki", socialLabelFive: "Post 05", socialFive: "Zostań<br>na dłużej",
+                                        igBeforeLabel: "Przed · Post 01", igBeforeTitle: "Bez<br>kierunku", igBeforeText: "Surowy układ, neutralna forma i brak wyraźnego języka wizualnego.", igAfterLabel: "Po · Post 01", igAfterTitle: "Ruch<br>i forma", igAfterText: "Kolor, rytm i typografia budują charakter posta dla marki.", igCaption: "Transformacja posta na Instagram",
                                         allWork: "← Wszystkie realizacje", aboutProject: "O projekcie", backToWork: "← Wróć do realizacji",
                                         labTitle: "Aplikacja w kilku warstwach", labText: "Prosty koncept aplikacji do planowania dnia. Interfejs opiera się na spokojnej typografii, czytelnych kartach i jednej głównej akcji.",
                                         layers: "Głębia interfejsu", sceneBackground: "Dzisiaj", sceneContent: "Twój plan", sceneAction: "Dodaj zadanie", sceneCursor: "+",
@@ -1210,8 +1383,10 @@
                                         profileAlt: "Dawid Światłoch working on a car", aboutShortTitle: "Dawid Światłoch",
                                         aboutShortText: "My name is Dawid Światłoch. I am a designer working across UX/UI, 3D and art direction. This portfolio brings together my projects, experiments and ways of thinking about image, form and user experience.",
                                         selectedWork: "Selected projects", all: "All",
-                                        workWatches: "Tauron identity and website", workCosmetics: "Logo projects",
+                                        workWatches: "Test branding for Tauron", workCosmetics: "Logo projects", workSocial: "Social media",
                                         workInpost: "InPost visual identity", workStudios: "Studio booking application", workDashboard: "Analytics dashboard and design system",
+                                        socialTitle: "Social media", socialLabel: "Post 01", socialOne: "Motion<br>and form", socialLabelTwo: "Post 02", socialTwo: "Less<br>is more", socialLabelThree: "Post 03", socialThree: "A new<br>direction", socialLabelFour: "Post 04", socialFour: "Brand<br>colour", socialLabelFive: "Post 05", socialFive: "Stay<br>longer",
+                                        igBeforeLabel: "Before · Post 01", igBeforeTitle: "No<br>direction", igBeforeText: "A raw layout, neutral form and no distinct visual language.", igAfterLabel: "After · Post 01", igAfterTitle: "Motion<br>and form", igAfterText: "Colour, rhythm and typography build the character of the brand post.", igCaption: "Instagram post transformation",
                                         allWork: "← All work", aboutProject: "About the project", backToWork: "← Back to work",
                                         labTitle: "An app in several layers", labText: "A simple concept for planning the day. The interface uses calm typography, clear cards and one primary action.",
                                         layers: "Interface depth", sceneBackground: "Today", sceneContent: "Your plan", sceneAction: "Add task", sceneCursor: "+",
@@ -1261,7 +1436,7 @@
                                 function () {
                                     var e = {
                                                 watches: {
-                                                    title: "Tauron identyfikacja i strona internetowa",
+                                                    title: "Testowy branding dla Taurona",
                                                     meta: "Branding · UX/UI · 2026",
                                                     description: "Projekt identyfikacji wizualnej i strony internetowej dla Tauron. Praca obejmowała opracowanie logo, typografii, palety kolorów oraz kierunku wizualnego dla serwisu i aplikacji związanej z energią odnawialną.",
                                                     gallery: ['<img class="project-image project-presentation-image" src="tauron/tauron-presentation.png" alt="Tauron — prezentacja projektu" loading="lazy">',
@@ -1307,6 +1482,19 @@
                                                         '<img class="project-image" src="inpost/tauron-logo.png" alt="Tauron — projekt logotypu" loading="lazy">'
                                                     ]
                                                 },
+                                                social: {
+                                                    title: "Social media",
+                                                    meta: "Content · 2026",
+                                                    description: "Transformacja prostej grafiki social media: od surowego układu do czytelnej, wyrazistej formy.",
+                                                    gallery: [
+                                                        '<div class="social-image-card"><small>PRZED</small><img src="social-media/img-2370.jpg" alt="Instagram przed zmianą — Level 43" loading="lazy"></div>',
+                                                        '<div class="social-image-card"><small>PO</small><img src="social-media/img-2369.jpg" alt="Instagram po zmianie — Level 43" loading="lazy"></div>',
+                                                        '<img class="project-image" src="social-media/cfe-01.png" alt="CFE Studio — grafika social media 1" loading="lazy">',
+                                                        '<img class="project-image" src="social-media/cfe-02.png" alt="CFE Studio — grafika social media 2" loading="lazy">',
+                                                        '<img class="project-image" src="social-media/cfe-03.png" alt="CFE Studio — grafika social media 3" loading="lazy">',
+                                                        '<img class="project-image" src="social-media/cfe-04.png" alt="CFE Studio — grafika social media 4" loading="lazy">'
+                                                    ]
+                                                },
                                                 studios: {
                                                     title: "Aplikacja do rezerwacji studiów",
                                                     meta: "UI/UX · 2026",
@@ -1328,7 +1516,6 @@
                                                     ]
                                                 }
                                         };
-                                    document.querySelector('[data-project="watches"] .tauron-home-preview').outerHTML = e.watches.gallery[1];
                                     var t = document.getElementById("m-project-detail"),
                                         o = document.getElementById("m-project-title"),
                                         n = document.getElementById("m-project-meta"),
@@ -1339,18 +1526,20 @@
                                         lightboxClose = document.createElement("button"),
                                         p = {
                                             pl: {
-                                                watches: ["Tauron identyfikacja i strona internetowa", "Koncepcja identyfikacji wizualnej i strony internetowej dla firmy TAURON, związana z energią odnawialną i świadomym korzystaniem z zasobów. Projekt łączy wyrazisty język marki, czytelną komunikację oraz nowoczesny interfejs, który przybliża użytkownikom temat ekologicznej energii i codziennych sposobów na bardziej zrównoważone życie."],
+                                                watches: ["Testowy branding dla Taurona", "Testowy kierunek brandingowy dla firmy TAURON, obejmujący identyfikację wizualną, komunikację oraz projekt strony internetowej."],
                                                         inpost: ["InPost identyfikacja wizualna", "Projekt systemu identyfikacji wizualnej InPost obejmujący logo, typografię, hierarchię informacji i paletę kolorów."],
                                                         helmet: ["Kask wyścigowy projekt 3D", "Projekt modelu 3D kasku wyścigowego wykonany w Blenderze. Praca obejmowała budowę formy, modelowanie detali, przygotowanie wizjera i elementów mocujących, a także opracowanie materiałów, kolorystyki i oświetlenia do finalnych renderów."],
                                                         cosmetics: ["Projekty logotypów", "Zbiór autorskich projektów logotypów obejmujący różne kierunki, branże i języki wizualne."],
+                                                        social: ["Social media", "Transformacja prostej grafiki social media: od surowego układu do czytelnej, wyrazistej formy."],
                                                 studios: ["Aplikacja do rezerwacji studiów", "Koncepcja i projekt UX/UI aplikacji do rezerwowania przestrzeni kreatywnych. Uporządkowałem proces od wyszukania studia i wyboru terminu po płatność, a następnie przełożyłem go na spójny prototyp i bibliotekę komponentów."],
                                                 dashboard: ["Dashboard analityczny i system designu", "Dashboard dla zespołu potrzebującego szybkiego i czytelnego obrazu danych. Zaprojektowałem hierarchię informacji, moduły analityczne oraz skalowalny system designu, który porządkuje dalszy rozwój produktu."]
                                             },
                                             en: {
-                                                watches: ["Tauron identity and website", "A visual identity and website concept for TAURON, focused on renewable energy and more conscious use of resources. The project combines a distinctive brand language, clear communication and a contemporary interface that introduces users to clean energy and more sustainable everyday choices."],
+                                                watches: ["Test branding for Tauron", "A test branding direction for TAURON, covering visual identity, communication and a website concept."],
                                                 inpost: ["InPost visual identity", "An InPost visual identity system covering the logo, typography, information hierarchy and colour palette."],
                                                 helmet: ["Racing helmet 3D project", "A 3D racing helmet project created in Blender. The work covered form development, detail modeling, visor and fastening elements, as well as the materials, colour treatment and lighting for the final renders."],
                                                 cosmetics: ["Logo projects", "A collection of original logo projects across different directions, industries and visual languages."],
+                                                social: ["Social media", "A simple social media graphic transformed from a raw layout into a clear, distinctive visual."],
                                                 studios: ["Studio booking application", "UX/UI concept and design for a creative-space booking application. I streamlined the journey from finding a studio and selecting a time slot to payment, then translated it into a clear prototype and component library."],
                                                 dashboard: ["Analytics dashboard and design system", "A dashboard for a team that needed a fast, clear view of its data. I designed the information hierarchy, analytical modules and a scalable design system to support the product’s continued growth."]
                                             }
@@ -1395,6 +1584,7 @@
                                         n.textContent = f.meta,
                                         r.textContent = d[i][1],
                                         c.classList.toggle("logo-gallery", i === "cosmetics"),
+                                        c.classList.toggle("social-gallery", i === "social"),
                                         c.innerHTML = f.gallery.map(function (e, t) {
                                                 return "<figure aria-label=\"" + (a === "en" ? "Preview " : "Podgląd ") + (t + 1) + "\">" + e + "</figure>"
                                         }).join(""),
